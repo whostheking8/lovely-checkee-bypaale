@@ -73,7 +73,7 @@ function cekKecocokan(raw1, raw2) {
     let hasil;
 
     if (melda && hendery) {
-        hasil = `${raw1} ❤️ ${raw2}<br>💔 Hasil: 0%`;
+        hasil = `${raw1} ❤️ ${raw2}<br>💔 Hasil: 2% aja deh kasian`;
     } else if (melda && (naufal || nopal)) {
         hasil = `${raw1} ❤️ ${raw2}<br>💖 Hasil: 99%`;
     } else if ((nopal && emilia)) {
