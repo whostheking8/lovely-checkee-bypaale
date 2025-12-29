@@ -63,16 +63,21 @@ function cekKecocokan(raw1, raw2) {
     const a = normalizeNama(raw1);
     const b = normalizeNama(raw2);
 
-    const melda = mirip(a,"melda") || mirip(b,"melda");
-    const hendery = mirip(a,"hendery") || mirip(b,"hendery");
-    const naufal = mirip(a,"naufal") || mirip(b,"naufal");
+    // Semua variasi nama
+    const melda = ["melda"].some(n => mirip(a,n) || mirip(b,n));
+    const hendery = ["hendery"].some(n => mirip(a,n) || mirip(b,n));
+    const naufal = ["naufal"].some(n => mirip(a,n) || mirip(b,n));
+    const nopal = ["nopal"].some(n => mirip(a,n) || mirip(b,n));
+    const emilia = ["emilia"].some(n => mirip(a,n) || mirip(b,n));
 
     let hasil;
 
     if (melda && hendery) {
         hasil = `${raw1} ❤️ ${raw2}<br>💔 Hasil: 0%`;
-    } else if (melda && naufal) {
+    } else if (melda && (naufal || nopal)) {
         hasil = `${raw1} ❤️ ${raw2}<br>💖 Hasil: 99%`;
+    } else if ((nopal && emilia)) {
+        hasil = `${raw1} ❤️ ${raw2}<br>💖 Hasil: 88%`;
     } else {
         const options = [
             "Mungkin tidak 😅",
